@@ -42,21 +42,6 @@ void fillJob(eJob listJ[], eService listS[], int sizeS, eDate date[], int freePo
 	inputInt(&date[freePosition].year, "Enter year: ", "\nError, enter year:");
 }
 
-void printJobs(eJob listJ[], int sizeJ, eService listS[], eDate date[], eAuxiliary auxiliary[])
-{
-	int i;
-	int sizeJobOccupied;
-
-	activeProductsPosition(listJ, sizeJ, auxiliary, &sizeJobOccupied);
-
-	printf(" ID       BICYCLEBRAND     INCHWHEEL       SERVICE              DATE");
-	for (i = 0; i < sizeJobOccupied; i++)
-	{
-		printf("\n%3d %18s %13d %13s %10d/%d/%d", listJ[auxiliary[i].id].idJob, listJ[auxiliary[i].id].bicycleBrand, listJ[auxiliary[i].id].inchWheel, listS[listJ[auxiliary[i].id].idService - 20000].description, date[auxiliary[i].id].day,
-				date[auxiliary[i].id].month, date[auxiliary[i].id].year);
-	}
-}
-
 int activeProductsPosition(eJob listJ[], int sizeJ, eAuxiliary auxiliary[], int *sizeA)
 {
 	int returnValue;

@@ -28,17 +28,3 @@ void hardCodeService(eService listS[], int sizeS)
 	listS[3].price = 350;
 }
 
-void printServices(eService listS[], int sizeS)
-{
-	int i;
-	printf("\nID            SERVICE      PRICE");
-	for (i = 0; i < sizeS; i++)
-	{
-		printf("\n%5d %15s %10d", listS[i].idService, listS[i].description, listS[i].price);
-	}
-}
-
-void printTotalServices(int totalMoney)
-{
-	printf("Total money for services rendered: %d", totalMoney);
-}
