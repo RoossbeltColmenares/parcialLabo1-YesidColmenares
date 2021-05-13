@@ -103,3 +103,17 @@ int modificationJob(eJob listJ[], int sizeJ, eService listS[], int sizeS, int id
 	return returnValue;
 }
 
+void totalMoneyServices(eJob listJ[], int sizeJ, eService listS[], int *totalMoney)
+{
+	int i;
+	int sizeA;
+	eAuxiliary auxiliary[SIZE_J];
+
+	activeProductsPosition(listJ, sizeJ, auxiliary, &sizeA);
+
+	for (i = 0; i < sizeA; i++)
+	{
+		*totalMoney += listS[listJ[auxiliary[i].id].idService-20000].price;
+	}
+}
+

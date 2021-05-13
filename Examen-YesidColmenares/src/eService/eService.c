@@ -37,3 +37,8 @@ void printServices(eService listS[], int sizeS)
 		printf("\n%5d %15s %10d", listS[i].idService, listS[i].description, listS[i].price);
 	}
 }
+
+void printTotalServices(int totalMoney)
+{
+	printf("Total money for services rendered: %d", totalMoney);
+}

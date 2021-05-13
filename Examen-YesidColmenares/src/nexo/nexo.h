@@ -26,4 +26,6 @@ void printJobs(eJob listJ[], int sizeJ, eService listS[], eDate listD[], eAuxili
 
 int modificationJob(eJob listJ[], int sizeJ, eService listS[], int sizeS, int id, int option);
 
+void totalMoneyServices(eJob listJ[], int sizeJ, eService listS[], int *totalMoney);
+
 #endif /* NEXO_NEXO_H_ */

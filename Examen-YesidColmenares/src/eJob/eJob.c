@@ -6,6 +6,8 @@
  */
 
 #include "eJob.h"
+#include "../eAuxiliary/eAuxiliary.h"
+#include "../nexo/nexo.h"
 #define FALSE 0
 #define TRUE 1
 #define OCCUPIED 1
@@ -90,25 +92,61 @@ int removeJob(eJob listJ[], int sizeJ, int id)
 	return returnValue;
 }
 
+int ageLowToHighJob(eJob listJ[], int sizeJ, eDate date[], int sizeD)
+{
+	int returnValue;
+	int i;
+	int j;
+	int sizeA;
+	eAuxiliary auxiliary[sizeJ];
+	eJob cpy;
 
+	activeProductsPosition(listJ, sizeJ, auxiliary, &sizeA);
 
+	returnValue = FALSE;
 
+	for (i = 0; i < sizeA - 1; i++)
+	{
+		for (j = i + 1; j < sizeA; j++)
+		{
+			if (date[auxiliary[i].id].year < date[auxiliary[j].id].year)
+			{
+				cpy = listJ[auxiliary[j].id];
+				listJ[auxiliary[j].id] = listJ[auxiliary[i].id];
+				listJ[auxiliary[i].id] = cpy;
+				returnValue = TRUE;
+			}
+		}
+	}
+	return returnValue;
+}
 
+int originalOrderJob(eJob listJ[], int sizeJ)
+{
+	int returnValue;
+	int i;
+	int j;
+	int sizeA;
+	eAuxiliary auxiliary[sizeJ];
+	eJob cpy;
 
+	activeProductsPosition(listJ, sizeJ, auxiliary, &sizeA);
 
+	returnValue = FALSE;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	for (i = 0; i < sizeA - 1; i++)
+	{
+		for (j = i + 1; j < sizeA; j++)
+		{
+			if (listJ[auxiliary[i].id].idJob < listJ[auxiliary[j].id].idJob)
+			{
+				cpy = listJ[auxiliary[j].id];
+				listJ[auxiliary[j].id] = listJ[auxiliary[i].id];
+				listJ[auxiliary[i].id] = cpy;
+				returnValue = TRUE;
+			}
+		}
+	}
+	return returnValue;
+}
 

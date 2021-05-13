@@ -20,4 +20,5 @@ void hardCodeService(eService service[], int sizeS);
 
 void printServices(eService listS[], int sizeS);
 
+void printTotalServices(int totalMoney);
 #endif /* ESERVICE_ESERVICE_H_ */

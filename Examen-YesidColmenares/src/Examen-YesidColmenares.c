@@ -23,9 +23,11 @@ int main(void)
 	int whileCondition;
 	int returnValueId;
 	int returnValueOption;
+	int totalMoney;
 
 	initialitationJob(listJ, SIZE_J);
 	hardCodeService(listS, SIZE_S);
+
 	do
 	{
 		printf("\n-------------------WELCOM TO OUR DATA SYSTEM--------------------");
@@ -109,7 +111,9 @@ int main(void)
 				system("cls");
 				if (thereAreJobs(listJ, SIZE_J) == TRUE)
 				{
+					ageLowToHighJob(listJ, SIZE_J, date, SIZE_D);
 					printJobs(listJ, SIZE_J, listS, date, auxiliary);
+					//originalOrderJob(listJ, SIZE_J);
 				}
 				else
 				{
@@ -119,11 +123,21 @@ int main(void)
 
 			case 5:
 				system("cls");
-
+				printServices(listS, SIZE_S);
 				break;
 
 			case 6:
 				system("cls");
+				if (thereAreJobs(listJ, SIZE_J) == TRUE)
+				{
+					totalMoney = 0;
+					totalMoneyServices(listJ, SIZE_J, listS, &totalMoney);
+					printTotalServices(totalMoney);
+				}
+				else
+				{
+					printf("\n! There are no jobs in the database  !\n");
+				}
 				break;
 
 			case 7:

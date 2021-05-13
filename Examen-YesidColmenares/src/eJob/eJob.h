@@ -31,4 +31,8 @@ int thereAreJobs(eJob listJ[], int sizeJ);
 int compareIdJob(eJob listJ[], int sizeJ, int *position, int id);
 
 int removeJob(eJob listJ[], int sizeJ, int id);
+
+int ageLowToHighJob(eJob listJ[], int sizeJ, eDate date[], int sizeD);
+
+int originalOrderJob(eJob listJ[], int sizeJ);
 #endif /* EJOB_EJOB_H_ */
