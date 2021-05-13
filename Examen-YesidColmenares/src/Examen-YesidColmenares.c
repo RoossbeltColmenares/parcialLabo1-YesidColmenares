@@ -56,7 +56,7 @@ int main(void)
 
 			case 2:
 				system("cls");
-				if (thereAreJobs(listJ, SIZE_J)== TRUE)
+				if (thereAreJobs(listJ, SIZE_J) == TRUE)
 				{
 					inputIntR(&returnValueOption, "Enter 1 to modify the bicycle brand,\nEnter 2 to modify the service: ", "Error, enter 1 to modify the bicycle brand,\nError, Enter 2 to modify the service: ", 1, 2);
 					system("cls");
@@ -82,15 +82,44 @@ int main(void)
 
 			case 3:
 				system("cls");
+				if (thereAreJobs(listJ, SIZE_J) == TRUE)
+				{
+					printJobs(listJ, SIZE_J, listS, date, auxiliary);
+					inputInt(&returnValueId, "\nEnter the ID to unsubscribe: ", "\nError, enter the ID to unsubscribe: ");
+
+					if (removeJob(listJ, SIZE_J, returnValueId) == TRUE)
+					{
+						system("cls");
+						printf("! DATA ELIMINATED SUCCESSFULLY !\n");
+					}
+					else
+					{
+						system("cls");
+						printf("! The specified ID does not exist !\n");
+					}
+				}
+				else
+				{
+					printf("\n! There are no jobs in the database  !\n");
+				}
+
 				break;
 
 			case 4:
 				system("cls");
-				printJobs(listJ, SIZE_J, listS, date, auxiliary);
+				if (thereAreJobs(listJ, SIZE_J) == TRUE)
+				{
+					printJobs(listJ, SIZE_J, listS, date, auxiliary);
+				}
+				else
+				{
+					printf("\n! There are no jobs in the database  !\n");
+				}
 				break;
 
 			case 5:
 				system("cls");
+
 				break;
 
 			case 6:

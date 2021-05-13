@@ -29,4 +29,6 @@ int searchIsEmptyJob(eJob listJ[], int sizeJ, int *position);
 int thereAreJobs(eJob listJ[], int sizeJ);
 
 int compareIdJob(eJob listJ[], int sizeJ, int *position, int id);
+
+int removeJob(eJob listJ[], int sizeJ, int id);
 #endif /* EJOB_EJOB_H_ */

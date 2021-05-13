@@ -74,3 +74,41 @@ int compareIdJob(eJob listJ[], int sizeJ, int *position, int id)
 	}
 	return returnValue;
 }
+
+int removeJob(eJob listJ[], int sizeJ, int id)
+{
+	int returnValue;
+	int position;
+
+	returnValue = FALSE;
+	if (compareIdJob(listJ, sizeJ, &position, id) == TRUE)
+	{
+		listJ[position].isEmpty = VOID;
+		listJ[position].idJob = VOID;
+		returnValue = TRUE;
+	}
+	return returnValue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
