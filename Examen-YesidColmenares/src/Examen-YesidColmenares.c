@@ -17,9 +17,12 @@ int main(void)
 	eJob listJ[SIZE_J];
 	eDate date[SIZE_D];
 	eService listS[SIZE_S];
+	eAuxiliary auxiliary[SIZE_A];
 
 	int optionEntered;
 	int whileCondition;
+	int returnValueId;
+	int returnValueOption;
 
 	initialitationJob(listJ, SIZE_J);
 	hardCodeService(listS, SIZE_S);
@@ -39,11 +42,42 @@ int main(void)
 		{
 			case 1:
 				system("cls");
-				addJob(listJ, SIZE_J, listS, SIZE_S, date, SIZE_D);
+				if (addJob(listJ, SIZE_J, listS, SIZE_S, date, SIZE_D) == TRUE)
+				{
+					system("cls");
+					printf("! DATA UPLOADED SUCCESSFULLY !\n");
+				}
+				else
+				{
+					system("cls");
+					printf("! There is no space available to store more Jobs !\n");
+				}
 				break;
 
 			case 2:
 				system("cls");
+				if (thereAreJobs(listJ, SIZE_J)== TRUE)
+				{
+					inputIntR(&returnValueOption, "Enter 1 to modify the bicycle brand,\nEnter 2 to modify the service: ", "Error, enter 1 to modify the bicycle brand,\nError, Enter 2 to modify the service: ", 1, 2);
+					system("cls");
+					printJobs(listJ, SIZE_J, listS, date, auxiliary);
+					inputInt(&returnValueId, "\nEnter the ID to modify: ", "\nError, enter the ID to modify: ");
+
+					if (modificationJob(listJ, SIZE_J, listS, SIZE_S, returnValueId, returnValueOption) == TRUE)
+					{
+						system("cls");
+						printf("! MODIFICATED SUCCESSFULLY !\n");
+					}
+					else
+					{
+						system("cls");
+						printf("! The specified ID does not exist !\n");
+					}
+				}
+				else
+				{
+					printf("\n! There are no jobs in the database  !\n");
+				}
 				break;
 
 			case 3:
@@ -52,6 +86,7 @@ int main(void)
 
 			case 4:
 				system("cls");
+				printJobs(listJ, SIZE_J, listS, date, auxiliary);
 				break;
 
 			case 5:

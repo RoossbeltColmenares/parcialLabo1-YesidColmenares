@@ -11,10 +11,19 @@
 #include "../eJob/eJob.h"
 #include "../eService/eService.h"
 #include "../dataEntry/input.h"
+#include "../eAuxiliary/eAuxiliary.h"
+#define TRUE 1
+#define FALSE 0
 #include <stdio.h>
 
 int addJob(eJob listJ[], int sizeJ, eService listS[], int sizeS, eDate date[], int sizeD);
 
 void fillJob(eJob listJ[], eService listS[], int sizeS, eDate date[], int freePosition);
+
+int activeProductsPosition(eJob listJ[], int sizeJ, eAuxiliary auxiliary[], int *sizeA);
+
+void printJobs(eJob listJ[], int sizeJ, eService listS[], eDate listD[], eAuxiliary auxiliary[]);
+
+int modificationJob(eJob listJ[], int sizeJ, eService listS[], int sizeS, int id, int option);
 
 #endif /* NEXO_NEXO_H_ */

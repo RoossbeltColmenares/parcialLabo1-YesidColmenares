@@ -13,7 +13,7 @@ typedef struct
 {
 	int idService;
 	char description[25];
-	float price;
+	int price;
 } eService;
 
 void hardCodeService(eService service[], int sizeS);

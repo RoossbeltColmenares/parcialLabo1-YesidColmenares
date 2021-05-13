@@ -10,6 +10,7 @@
 #define SIZE_J 5
 #define VOID -1
 #include "../eDate/eDate.h"
+#include "../eJob/eJob.h"
 
 typedef struct
 {
@@ -24,4 +25,8 @@ typedef struct
 void initialitationJob(eJob listJ[], int sizeJ);
 
 int searchIsEmptyJob(eJob listJ[], int sizeJ, int *position);
+
+int thereAreJobs(eJob listJ[], int sizeJ);
+
+int compareIdJob(eJob listJ[], int sizeJ, int *position, int id);
 #endif /* EJOB_EJOB_H_ */
